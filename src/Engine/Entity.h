@@ -1,3 +1,6 @@
+#ifndef _ENTITY_H
+#define _ENTITY_H
+
 #include <memory>
 #include <list>
 
@@ -13,14 +16,10 @@ private:
 	void display();
 public:
 	std::shared_ptr<Core> getCore();
-	template<typename T>
-	std::shared_ptr<T> addComponent(T A, T B, T C)
-	{
-		std::shared_ptr<Component> woof = A;
-		components.push_back(woof);
-		return woof;
-	}
+	template<typename T> std::shared_ptr<T> addComponent();
 
 	Entity();
 	~Entity();
 };
+
+#endif // _ENTITY_H
