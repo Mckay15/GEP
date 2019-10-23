@@ -1,7 +1,19 @@
 #include "Component.h"
 
 
-void Component::test()
+std::shared_ptr<Entity> Component::getEntity()
 {
-	
+
+}
+std::shared_ptr<Core> Component::getCore() 
+{
+
+}
+std::shared_ptr<Keyboard> Component::getKeyboard()
+{
+
+}
+std::shared_ptr<Environment> Component::getEnviroment()
+{
+
 }

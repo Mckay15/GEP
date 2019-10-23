@@ -3,11 +3,11 @@
 
 std::shared_ptr<Core> Core::initialize()
 {
-
+	return std::make_shared<Core>();
 }
 std::shared_ptr<Entity> Core::addEntity()
 {
-
+	return std::make_shared<Entity>();
 }
 
 void Core::start()

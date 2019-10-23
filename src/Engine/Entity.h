@@ -16,7 +16,18 @@ private:
 	void display();
 public:
 	std::shared_ptr<Core> getCore();
-	template<typename T> std::shared_ptr<T> addComponent();
+	template<typename T> std::shared_ptr<T> addComponent()
+	{
+		std::shared_ptr<Component> component = std::make_shared<T>();
+		component = std::dynamic_pointer_cast<Component>(component);
+		if (!component)
+		{
+			std::exception();
+		}
+		components.push_back(component);
+		return woof;
+		
+	}
 
 	Entity();
 	~Entity();
