@@ -25,7 +25,7 @@ public:
 			std::exception();
 		}
 		components.push_back(component);
-		return woof;
+		return component;
 		
 	}
 
