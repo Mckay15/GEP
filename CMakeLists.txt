@@ -11,8 +11,10 @@ add_library(GEP
   src/Engine/Environment.h
   src/Engine/Keyboard.cpp
   src/Engine/Keyboard.h
-  src/Engine/Component.h
   src/Engine/Component.cpp
+  src/Engine/Component.h
+  src/Engine/TriRend.cpp
+  src/Engine/TriRend.h
   )
 target_link_libraries(GEP SDL2 opengl32 glew32)
 

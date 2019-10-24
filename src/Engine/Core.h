@@ -1,3 +1,6 @@
+#ifndef _CORE_H
+#define _CORE_H
+
 #include <memory>
 #include <List>
 #include "Environment.h"
@@ -22,3 +25,5 @@ public:
 	Core();
 	~Core();
 };
+
+#endif // !_CORE_H

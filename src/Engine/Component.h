@@ -3,8 +3,6 @@
 
 class Entity;
 class Core;
-class Keyboard;
-class Environment;
 
 class Component
 {
