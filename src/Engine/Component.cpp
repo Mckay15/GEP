@@ -1,9 +1,10 @@
 #include "Component.h"
-#include "Core.h"
 
 std::shared_ptr<Entity> Component::getEntity()
 {
-	return std::make_shared<Entity>();
+	std::shared_ptr<Entity> temp = std::make_shared<Entity>();
+
+	return temp;
 }
 std::shared_ptr<Core> Component::getCore() 
 {

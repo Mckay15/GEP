@@ -16,7 +16,7 @@ private:
 	std::shared_ptr<Keyboard> keyboard;
 	bool running = true;
 public:
-	std::shared_ptr<Core> initialize();
+	static std::shared_ptr<Core> initialize();
 	std::shared_ptr<Entity> addEntity();
 
 	void start();

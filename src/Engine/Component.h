@@ -1,8 +1,12 @@
+#ifndef _COMPONENT_H
+#define _COMPONENT_H
+
 #include "Entity.h"
 #include <memory>
 
 class Entity;
 class Core;
+class Environment;
 
 class Component
 {
@@ -20,3 +24,6 @@ public:
 	std::shared_ptr<Environment> getEnviroment();
 
 };
+
+
+#endif // !_COMPONENT_H

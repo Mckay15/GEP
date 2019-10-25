@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(GEP)
 
+include_directories(src)
+
 add_library(GEP
   src/Engine/Core.cpp
   src/Engine/Core.h
