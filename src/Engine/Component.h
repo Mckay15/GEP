@@ -7,6 +7,7 @@
 class Entity;
 class Core;
 class Environment;
+class Keyboard;
 
 class Component
 {

@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <list>
+#include <vector>
 
 class Core;
 class Component;
@@ -10,15 +11,16 @@ class Component;
 class Entity
 {
 private:
-	std::list<std::shared_ptr<Component>> components;
+	std::vector<std::shared_ptr<Component>> components;
 	std::weak_ptr<Core> core;
 	void tick();
 	void display();
 public:
 	std::shared_ptr<Core> getCore();
-	template<typename T, typename... args> std::shared_ptr<T> addComponent()
+	template<typename T, typename... args> 
+	std::shared_ptr<T> addComponent()
 	{
-		std::shared_ptr<Component> component = std::make_shared<T>();
+		std::shared_ptr<T> component = std::make_shared<T>();
 		//std::shared_ptr<Component> temp = std::make_shared<Component>();
 		//temp = std::dynamic_pointer_cast<Component>(component);
 

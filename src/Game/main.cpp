@@ -2,6 +2,7 @@
 #include <Engine/Core.h>
 #include <Engine/Entity.h>
 #include <Engine/Component.h>
+#include <Engine/Keyboard.h>
 
 int main ()
 {

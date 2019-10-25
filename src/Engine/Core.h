@@ -3,9 +3,9 @@
 
 #include <memory>
 #include <List>
-#include "Environment.h"
-#include "Entity.h"
-#include "Keyboard.h"
+class Entity;
+class Keyboard;
+class Environment;
 
 
 class Core

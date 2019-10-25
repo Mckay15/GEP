@@ -1,4 +1,7 @@
 #include "Component.h"
+#include "Keyboard.h"
+#include "Environment.h"
+#include "Core.h"
 
 std::shared_ptr<Entity> Component::getEntity()
 {
