@@ -3,12 +3,13 @@
 
 #include <memory>
 #include <List>
+#include "NonCopyable.h"
 class Entity;
 class Keyboard;
 class Environment;
 
 
-class Core
+class Core : private NonCopyable
 {
 private:
 	std::shared_ptr<Environment> environment;
