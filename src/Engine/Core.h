@@ -16,10 +16,10 @@ private:
 	std::list<std::shared_ptr<Entity>> entities;
 	std::shared_ptr<Keyboard> keyboard;
 	bool running = true;
+	std::weak_ptr<Core> self;
 public:
 	static std::shared_ptr<Core> initialize();
 	std::shared_ptr<Entity> addEntity();
-
 	void start();
 	void stop();
 

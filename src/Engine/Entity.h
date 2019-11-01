@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <list>
-#include <vector>
+#include <glm/glm.hpp>
 
 class Core;
 class Component;
@@ -11,10 +11,13 @@ class Component;
 class Entity
 {
 private:
-	std::vector<std::shared_ptr<Component>> components;
+	std::list<std::shared_ptr<Component>> components;
 	std::weak_ptr<Core> core;
 	void tick();
 	void display();
+	glm::vec3 position;
+	glm::vec3 rotation;
+	glm::vec3 scale;
 public:
 	std::shared_ptr<Core> getCore();
 	template<typename T, typename... args> 
@@ -26,11 +29,24 @@ public:
 
 		if (!component)
 		{
-			std::exception();
+			throw std::exception();
 		}
 		components.push_back(component);
-		return component;
-		
+		return component;	
+	}
+
+	template<typename T> 
+	std::shared_ptr<T> getComponent()
+	{
+		for (auto it = components.begin(); it != components.end(); it++)
+		{
+			std::shared_ptr<T> rtn = std::dynamic_pointer_cast<T>(*it);
+			if (rtn)
+			{
+				return rtn;
+			}
+		}
+		throw std::exception();
 	}
 
 	Entity();

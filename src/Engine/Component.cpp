@@ -5,9 +5,9 @@
 
 std::shared_ptr<Entity> Component::getEntity()
 {
-	std::shared_ptr<Entity> temp = std::make_shared<Entity>();
+	std::shared_ptr<Entity> entity = std::make_shared<Entity>();
 
-	return temp;
+	return entity;
 }
 std::shared_ptr<Core> Component::getCore() 
 {

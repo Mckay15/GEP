@@ -19,6 +19,8 @@ add_library(GEP
   src/Engine/TriRend.h
   src/Engine/NonCopyable.cpp
   src/Engine/NonCopyable.h
+  src/Engine/Camera.cpp
+  src/Engine/Camera.h
   )
 target_link_libraries(GEP SDL2 opengl32 glew32)
 
