@@ -3,6 +3,22 @@ project(GEP)
 
 include_directories(src)
 
+add_library(rend
+  src/rend/Exception.cpp
+  src/rend/Context.cpp
+  src/rend/Texture.cpp
+  src/rend/RenderTexture.cpp
+  src/rend/Shader.cpp
+  src/rend/Buffer.cpp
+  src/rend/Mesh.cpp
+  src/rend/Util.cpp
+)
+if(MSVC)
+  target_link_libraries(rend glew32 opengl32)
+else()
+  target_link_libraries(rend GLEW GL)
+endif()
+
 add_library(GEP
   src/Engine/Core.cpp
   src/Engine/Core.h
@@ -21,8 +37,19 @@ add_library(GEP
   src/Engine/NonCopyable.h
   src/Engine/Camera.cpp
   src/Engine/Camera.h
+  src/Engine/Mesh.cpp
+  src/Engine/Mesh.h
+  src/Engine/Resource.h
+  src/Engine/MeshRenderer.cpp
+  src/Engine/MeshRenderer.h
+  src/Engine/Sound.cpp
+  src/Engine/Sound.h
+  src/Engine/Material.cpp
+  src/Engine/Material.h
+  src/Engine/MaterialAttribute.cpp
+  src/Engine/MaterialAttribute.h
   )
-target_link_libraries(GEP SDL2 opengl32 glew32)
+target_link_libraries(GEP SDL2 rend)
 
 add_executable(Game
   src/Game/main.cpp

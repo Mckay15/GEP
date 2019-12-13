@@ -16,7 +16,10 @@ void Keyboard::onDisplay()
 {
 
 }
+void Kill()
+{
 
+}
 
 bool Keyboard::getKey(int _keyCode)
 {

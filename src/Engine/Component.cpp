@@ -21,3 +21,27 @@ std::shared_ptr<Environment> Component::getEnviroment()
 {
 	return std::make_shared<Environment>();
 }
+
+void Component::translate(glm::vec3 _distance)
+{
+}
+
+void Component::roatate(glm::vec3 _rotation)
+{
+}
+
+void Component::scale(glm::vec3 _scale)
+{
+}
+
+void Component::setLocalPos(glm::vec3 _pos)
+{
+}
+
+void Component::setLocalRot(glm::vec3 _rot)
+{
+}
+
+void Component::setLocalScale(glm::vec3 _scale)
+{
+}

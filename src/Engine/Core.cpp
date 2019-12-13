@@ -16,7 +16,7 @@ std::shared_ptr<Entity> Core::addEntity()
 
 void Core::start()
 {
-
+	
 }
 void Core::stop()
 {

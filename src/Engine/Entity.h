@@ -20,18 +20,18 @@ private:
 	glm::vec3 scale;
 public:
 	std::shared_ptr<Core> getCore();
-	template<typename T, typename... args> 
-	std::shared_ptr<T> addComponent()
+	template<typename T, typename... A> 
+	std::shared_ptr<T> addComponent(A... args)
 	{
 		std::shared_ptr<T> component = std::make_shared<T>();
-		//std::shared_ptr<Component> temp = std::make_shared<Component>();
 		//temp = std::dynamic_pointer_cast<Component>(component);
-
+		//component->onInit(args...);
 		if (!component)
 		{
 			throw std::exception();
 		}
 		components.push_back(component);
+		component->onInit(args...);
 		return component;	
 	}
 
