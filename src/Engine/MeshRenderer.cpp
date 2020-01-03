@@ -10,6 +10,7 @@ void MeshRenderer::onInit()
 
 void MeshRenderer::setMesh(std::weak_ptr<Mesh> _mesh)
 {
+	mesh = _mesh;
 }
 
 std::shared_ptr<Mesh> MeshRenderer::getMesh()

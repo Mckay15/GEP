@@ -48,6 +48,10 @@ add_library(GEP
   src/Engine/Material.h
   src/Engine/MaterialAttribute.cpp
   src/Engine/MaterialAttribute.h
+  src/Engine/Resources.cpp
+  src/Engine/Resources.h
+  src/Engine/Screen.cpp
+  src/Engine/Screen.h
   )
 target_link_libraries(GEP SDL2 rend)
 
