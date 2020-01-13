@@ -1,24 +1,21 @@
 #include "MeshRenderer.h"
+#include "Mesh.h"
 
 void MeshRenderer::onDisplay()
 {
 }
 
-void MeshRenderer::onInit()
-{
-}
-
-void MeshRenderer::setMesh(std::weak_ptr<Mesh> _mesh)
+void MeshRenderer::setMesh(std::shared_ptr<Mesh> _mesh)
 {
 	mesh = _mesh;
 }
 
-std::shared_ptr<Mesh> MeshRenderer::getMesh()
+void MeshRenderer::setMaterial(std::shared_ptr<Material> _material)
 {
-	return std::shared_ptr<Mesh>();
+	material = _material;
 }
 
-std::shared_ptr<Material> MeshRenderer::getMaterial()
+void MeshRenderer::onInit()
 {
-	return std::shared_ptr<Material>();
+	
 }

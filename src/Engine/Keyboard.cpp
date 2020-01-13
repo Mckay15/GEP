@@ -16,7 +16,7 @@ void Keyboard::onDisplay()
 {
 
 }
-void Kill()
+void Keyboard::Kill()
 {
 
 }

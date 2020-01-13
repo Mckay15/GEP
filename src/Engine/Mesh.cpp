@@ -1,8 +1,10 @@
 #include "Mesh.h"
+#include "Resource.h"
+#include "Entity.h"
 #include "Core.h"
 #include <fstream>
 
-std::shared_ptr<Mesh> Mesh::onLoad(const std::string & _path)
+void Mesh::onLoad(const std::string & _path)
 {
 	std::ifstream f(_path);
 	std::string obj;
@@ -16,7 +18,8 @@ std::shared_ptr<Mesh> Mesh::onLoad(const std::string & _path)
 	//std::shared_ptr<Core> rtn = getCore();
 	std::shared_ptr<rend::Mesh> shape = getCore()->getContext()->createMesh();
 	shape->parse(obj);
-	return std::shared_ptr<Mesh>();
+	mesh = shape;
+	//return std::make_shared<Mesh>();
 }
 
 Mesh::Mesh()
@@ -35,10 +38,4 @@ void Mesh::addFace(rend::Face& _face)
 GLuint Mesh::getId()
 {
 	return GLuint();
-}
-
-std::shared_ptr<Mesh> Mesh::create()
-{
-	std::shared_ptr<Mesh> rtn = std::make_shared<Mesh>();
-	return rtn;
 }

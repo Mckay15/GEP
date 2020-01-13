@@ -1,19 +1,21 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include "Resource.h"
+#include "rend/rend.h"
 
+class MeshRenderer;
 class Shader;
 class Texture;
 class MaterialAttribute;
 
-class Material
+class Material : public Resource
 {
+	friend class MeshRenderer;
 public:
-	void setShader(std::weak_ptr<Shader> _shader);
-	void setValue(std::string _name, std::weak_ptr<Texture> _value);
-	void setValue(std::string _name, float _value);
 	std::shared_ptr<Shader> getShader();
+	void onLoad(const std::string& _path);
 private:
-	std::weak_ptr<Shader> shader;
-	std::vector<MaterialAttribute> attributes;
+	std::shared_ptr<rend::Shader> shader;
+	std::shared_ptr<rend::Texture> texture;
 };
