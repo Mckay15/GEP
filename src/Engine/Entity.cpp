@@ -13,7 +13,7 @@ void Entity::display()
 
 std::shared_ptr<Core> Entity::getCore()
 {
-	return std::make_shared<Core>();
+	return core.lock();
 }
 
 Entity::Entity()

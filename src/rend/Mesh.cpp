@@ -1,31 +1,11 @@
 #include "Mesh.h"
 #include "Util.h"
-#include "mathutil.h"
 #include "Context.h"
 #include "Buffer.h"
 #include "Exception.h"
 
 namespace rend
 {
-
-struct Face
-{
-  vec3 pa;
-  vec3 pb;
-  vec3 pc;
-
-  vec2 tca;
-  vec2 tcb;
-  vec2 tcc;
-
-  vec3 na;
-  vec3 nb;
-  vec3 nc;
-
-  vec2 lmca;
-  vec2 lmcb;
-  vec2 lmcc;
-};
 
 void Mesh::setBuffer(const std::string& name, const std::sr1::shared_ptr<Buffer>& buffer)
 {

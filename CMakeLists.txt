@@ -39,6 +39,7 @@ add_library(GEP
   src/Engine/Camera.h
   src/Engine/Mesh.cpp
   src/Engine/Mesh.h
+  src/Engine/Resource.cpp
   src/Engine/Resource.h
   src/Engine/MeshRenderer.cpp
   src/Engine/MeshRenderer.h

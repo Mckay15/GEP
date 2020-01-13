@@ -1,3 +1,5 @@
+#include "mathutil.h"
+
 #include <sr1/vector>
 #include <sr1/memory>
 
@@ -10,6 +12,26 @@ struct Buffer;
 struct Context;
 struct Shader;
 struct TextureAdapter;
+
+struct Face
+{
+	vec3 pa;
+	vec3 pb;
+	vec3 pc;
+
+	vec2 tca;
+	vec2 tcb;
+	vec2 tcc;
+
+	vec3 na;
+	vec3 nb;
+	vec3 nc;
+
+	vec2 lmca;
+	vec2 lmcb;
+	vec2 lmcc;
+};
+
 
 struct BufferData
 {
