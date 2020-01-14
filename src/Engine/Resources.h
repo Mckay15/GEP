@@ -1,12 +1,14 @@
 
 #include <memory>
 #include <list>
+#include "Core.h"
 
 class Resource;
-class Core;
+//class Core;
 
 class Resources
 {
+	friend class Core;
 private:
 	std::list<std::shared_ptr<Resource>> resources;
 public:

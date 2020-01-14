@@ -10,12 +10,12 @@ class Mesh;
 
 class Resource : private NonCopyable
 {
+	friend class Resources;
 private:
 	std::weak_ptr<Core> core;
 public:
-	//friend class Resources;
 	std::shared_ptr<Core> getCore();
-	void onLoad(const std::string& path)
+	virtual void onLoad(const std::string& path)
 	{}
 };
 

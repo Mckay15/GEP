@@ -3,6 +3,11 @@
 #include "Resources.h"
 #include <exception>
 
+std::shared_ptr<Resources> Core::getResources()
+{
+	return resources;
+}
+
 std::shared_ptr<rend::Context> Core::getContext()
 {
 	return context;
@@ -46,7 +51,26 @@ std::shared_ptr<Entity> Core::addEntity()
 
 void Core::start()
 {
-	
+	while (running)
+	{
+		//while (SDL_PollEvent(&e) != 0)
+		//{
+		//	if (e.type == SDL_QUIT)
+		//	{
+		//		running = false;
+		//	}
+		//}
+
+		glClearColor(0.39f, 0.58f, 0.93f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		for (auto it = entities.begin(); it != entities.end(); it++)
+		{
+			(*it)->display();
+		}
+
+		SDL_GL_SwapWindow(window);
+	}
 }
 void Core::stop()
 {

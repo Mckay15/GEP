@@ -5,11 +5,12 @@
 #include <list>
 #include <glm/glm.hpp>
 
-class Core;
+//class Core;
 class Component;
 
 class Entity
 {
+	friend class Core;
 private:
 	std::list<std::shared_ptr<Component>> components;
 	std::weak_ptr<Core> core;
@@ -19,6 +20,7 @@ private:
 	glm::vec3 rotation;
 	glm::vec3 scale;
 public:
+
 	std::shared_ptr<Core> getCore();
 	template<typename T, typename... A> 
 	std::shared_ptr<T> addComponent(A... args)

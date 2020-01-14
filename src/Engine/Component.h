@@ -4,7 +4,7 @@
 #include "Entity.h"
 #include <memory>
 
-class Entity;
+//class Entity;
 class Core;
 class Environment;
 class Keyboard;
@@ -14,10 +14,10 @@ class Component
 	friend class Entity;
 private:
 	std::weak_ptr<Entity> entity;
-	virtual void onInit() = 0;
-	virtual void onBegin() = 0;
-	virtual void onTick() = 0;
-	virtual void onDisplay() = 0;
+	virtual void onInit();
+	virtual void onBegin();
+	virtual void onTick();
+	virtual void onDisplay();
 	glm::vec3 localPos;
 	glm::vec3 localRot;
 	glm::vec3 localScale;

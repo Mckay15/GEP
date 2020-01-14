@@ -29,6 +29,7 @@ private:
 	std::shared_ptr<rend::Context> context;
 	SDL_Window* window;
 public:
+	std::shared_ptr<Resources> getResources();
 	std::shared_ptr<rend::Context> getContext();
 	static std::shared_ptr<Core> initialize();
 	std::shared_ptr<Entity> addEntity();

@@ -4,49 +4,37 @@
 #include "Material.h"
 #include "Core.h"
 #include <exception>
+#include <fstream>
 #include "rend/rend.h"
 
-std::shared_ptr<Shader> Material::getShader()
-{
-	return std::shared_ptr<Shader>();
-}
 
-void Material::onLoad(const std::string & _path)
+void Material::onLoad(const std::string& _path)
 {
 	std::shared_ptr<rend::Shader> rtnS = getCore()->getContext()->createShader();
 
+	std::string shader;
 
-	std::shared_ptr<rend::Texture> rtnT = getCore()->getContext()->createTexture();
+	std::ifstream file(_path.c_str());
 
+	std::cout << "Loading... " << std::endl;
+	if (!file.is_open())
 	{
-		int w = 0;
-		int h = 0;
-		int bpp = 0;
-
-		unsigned char *data = stbi_load(_path.c_str(),
-			&w, &h, &bpp, 3);
-
-		if (!data)
-		{
-			throw std::exception();
-		}
-
-		rtnT->setSize(w, h);
-
-		for (int y = 0; y < h; y++)
-		{
-			for (int x = 0; x < w; x++)
-			{
-				int r = y * w * 3 + x * 3;
-
-				texture->setPixel(x, y, glm::vec3(
-					data[r] / 255.0f,
-					data[r + 1] / 255.0f,
-					data[r + 2] / 255.0f));
-			}
-		}
-
-		stbi_image_free(data);
+		throw std::exception();
 	}
-	texture = rtnT;
+	else
+	{
+		while (!file.eof())
+		{
+			std::string line;
+			std::getline(file, line);
+			shader += line + "\n";
+		}
+	}
+	file.close();
+
+	rtnS->parse(shader);
+	
+	std::cout << "Finished" << std::endl;
+
+	buffer = getCore()->getContext()->createBuffer();
 }
