@@ -12,9 +12,11 @@ void Material::onLoad(const std::string& _path)
 {
 	std::shared_ptr<rend::Shader> rtnS = getCore()->getContext()->createShader();
 
-	std::string shader;
+	std::string shaderStr;
 
-	std::ifstream file(_path.c_str());
+	std::string temp = std::string("../Resources/") + _path + std::string(".shader");
+
+	std::ifstream file(temp.c_str());
 
 	std::cout << "Loading... " << std::endl;
 	if (!file.is_open())
@@ -27,14 +29,20 @@ void Material::onLoad(const std::string& _path)
 		{
 			std::string line;
 			std::getline(file, line);
-			shader += line + "\n";
+			shaderStr += line + "\n";
 		}
 	}
 	file.close();
 
-	rtnS->parse(shader);
+	rtnS->parse(shaderStr);
 	
+	shader = rtnS;
+
 	std::cout << "Finished" << std::endl;
 
 	buffer = getCore()->getContext()->createBuffer();
+
+	buffer->add(glm::vec2(0, 0.5f));
+	buffer->add(glm::vec2(-0.5f, -0.5f));
+	buffer->add(glm::vec2(0.5f, -0.5f));
 }

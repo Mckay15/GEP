@@ -13,17 +13,18 @@
 int main ()
 {
 	std::shared_ptr<Core> Temp = Core::initialize();
-	std::shared_ptr<Entity> entity = Temp->addEntity();
+	//std::shared_ptr<Entity> entity = Temp->addEntity();
 	std::shared_ptr<Entity> entity2 = Temp->addEntity();
 
 	auto meshRen = entity2->addComponent<MeshRenderer>();
 	//std::shared_ptr<Resources> ReSource = std::make_shared<Resources>();
 	std::shared_ptr<Material> mat;
-	mat = Temp->getResources()->load<Material>("../src/Game/Shaders/shade.txt");
-	/*entity2->getComponent<MeshRenderer>()->setMaterial(mat);
-	entity2->getComponent<MeshRenderer>()->onInit();
-*/
+	mat = Temp->getResources()->load<Material>("shade");
+	entity2->getComponent<MeshRenderer>()->setMaterial(mat);
+	//entity2->getComponent<MeshRenderer>()->onInit();
+
+	entity2->addComponent<Keyboard>();
+
 	Temp->start();
-	//auto keyboard = entity->addComponent<Keyboard>();
 return 0;
 }

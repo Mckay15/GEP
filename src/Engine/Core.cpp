@@ -46,7 +46,9 @@ std::shared_ptr<Core> Core::initialize()
 }
 std::shared_ptr<Entity> Core::addEntity()
 {
-	return std::make_shared<Entity>();
+	std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
+	entities.push_back(rtn);
+	return rtn;
 }
 
 void Core::start()

@@ -5,12 +5,8 @@
 
 void MeshRenderer::onDisplay()
 {
-	material->buffer->add(glm::vec2(0, 0.5f));
-	material->buffer->add(glm::vec2(-0.5f, -0.5f));
-	material->buffer->add(glm::vec2(0.5f, -0.5f));
-
 	material->shader->setAttribute("a_Position", material->buffer);
-//	material->shader->setMesh(mesh->mesh);
+	//material->shader->setMesh(mesh->mesh);
 	material->shader->render();
 }
 
