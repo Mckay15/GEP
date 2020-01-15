@@ -2,6 +2,7 @@
 #include "Keyboard.h"
 #include "Environment.h"
 #include "Core.h"
+#include "Entity.h"
 
 void Component::onInit()
 {
@@ -21,13 +22,11 @@ void Component::onDisplay()
 
 std::shared_ptr<Entity> Component::getEntity()
 {
-	std::shared_ptr<Entity> entity = std::make_shared<Entity>();
-
-	return entity;
+	return entity.lock();
 }
 std::shared_ptr<Core> Component::getCore() 
 {
-	return std::make_shared<Core>();
+	return entity.lock()->getCore();
 }
 std::shared_ptr<Keyboard> Component::getKeyboard()
 {

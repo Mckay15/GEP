@@ -4,9 +4,8 @@
 #include <memory>
 #include <list>
 #include <glm/glm.hpp>
-
+#include "Component.h"
 //class Core;
-class Component;
 
 class Entity
 {
@@ -14,11 +13,12 @@ class Entity
 private:
 	std::list<std::shared_ptr<Component>> components;
 	std::weak_ptr<Core> core;
+	std::weak_ptr<Entity> self;
 	void tick();
 	void display();
-	glm::vec3 localPos;
-	glm::vec3 localRot;
-	glm::vec3 localScale;
+	glm::vec3 localPos = glm::vec3(0,0,0);
+	glm::vec3 localRot = glm::vec3(0,0,0);
+	glm::vec3 localScale = glm::vec3(1,1,1);
 public:
 
 	std::shared_ptr<Core> getCore();
@@ -32,6 +32,7 @@ public:
 		{
 			throw std::exception();
 		}
+		component->entity = self;
 		components.push_back(component);
 		component->onInit(args...);
 		return component;	

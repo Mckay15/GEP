@@ -1,10 +1,8 @@
 #ifndef _COMPONENT_H
 #define _COMPONENT_H
 
-#include "Entity.h"
 #include <memory>
 
-//class Entity;
 class Core;
 class Environment;
 class Keyboard;
@@ -15,11 +13,11 @@ class Component
 	friend class Entity;
 private:
 	std::weak_ptr<Entity> entity;
+public:
 	virtual void onInit();
 	virtual void onBegin();
 	virtual void onTick();
 	virtual void onDisplay();
-public:
 	std::shared_ptr<Entity> getEntity();
 	std::shared_ptr<Core> getCore();
 	std::shared_ptr<Keyboard> getKeyboard();

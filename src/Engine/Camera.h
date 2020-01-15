@@ -12,6 +12,6 @@ public:
 	void onDisplay();
 
 	glm::mat4 getProjection();
-	glm::mat4 getView();
+	glm::mat4 getView(std::shared_ptr<Entity> _entity);
 };
 #endif //!_CAMERA_H_

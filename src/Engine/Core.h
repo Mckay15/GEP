@@ -31,6 +31,7 @@ private:
 	std::shared_ptr<rend::Context> context;
 	SDL_Window* window;
 public:
+	void setCamera(std::shared_ptr<Camera> _camera);
 	std::shared_ptr<Resources> getResources();
 	std::shared_ptr<Camera> getCamera();
 	std::shared_ptr<rend::Context> getContext();
