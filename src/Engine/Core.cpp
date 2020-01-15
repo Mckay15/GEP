@@ -8,6 +8,11 @@ std::shared_ptr<Resources> Core::getResources()
 	return resources;
 }
 
+std::shared_ptr<Camera> Core::getCamera()
+{
+	return camera.lock();
+}
+
 std::shared_ptr<rend::Context> Core::getContext()
 {
 	return context;

@@ -1,8 +1,17 @@
+#ifndef _CAMERA_H_
+#define _CAMERA_H_
 
+#include "rend/rend.h"
+#include "Component.h"
 
-class Camera
+class Camera : public Component
 {
-private:
-
+	friend class Core;
 public:
+	void onInit();
+	void onDisplay();
+
+	glm::mat4 getProjection();
+	glm::mat4 getView();
 };
+#endif //!_CAMERA_H_

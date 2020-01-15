@@ -1,12 +1,12 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "rend/stb_image.h"
+#include "rend/rend.h"
 
 #include "Material.h"
 #include "Core.h"
 #include <exception>
+#include <iostream>
 #include <fstream>
-#include "rend/rend.h"
-
 
 void Material::onLoad(const std::string& _path)
 {
@@ -40,9 +40,39 @@ void Material::onLoad(const std::string& _path)
 
 	std::cout << "Finished" << std::endl;
 
-	buffer = getCore()->getContext()->createBuffer();
+	std::sr1::shared_ptr<rend::Texture> rtnT = getCore()->getContext()->createTexture();
 
-	buffer->add(glm::vec2(0, 0.5f));
-	buffer->add(glm::vec2(-0.5f, -0.5f));
-	buffer->add(glm::vec2(0.5f, -0.5f));
+	int w = 0;
+	int h = 0;
+	int bpp = 0;
+
+	temp.clear();
+	temp = std::string("../Resources/") + _path + std::string(".png");
+
+	unsigned char *data = stbi_load(temp.c_str(),
+		&w, &h, &bpp, 3);
+
+	if (!data)
+	{
+		throw std::exception();
+	}
+
+	rtnT->setSize(w, h);
+
+	for (int y = 0; y < h; y++)
+	{
+		for (int x = 0; x < w; x++)
+		{
+			int r = y * w * 3 + x * 3;
+
+			rtnT->setPixel(x, y, glm::vec3(
+				data[r] / 255.0f,
+				data[r + 1] / 255.0f,
+				data[r + 2] / 255.0f));
+		}
+	}
+
+	stbi_image_free(data);
+
+	texture = rtnT;
 }

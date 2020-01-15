@@ -8,6 +8,7 @@
 class Core;
 class Environment;
 class Keyboard;
+class Camera;
 
 class Component
 {
@@ -18,20 +19,12 @@ private:
 	virtual void onBegin();
 	virtual void onTick();
 	virtual void onDisplay();
-	glm::vec3 localPos;
-	glm::vec3 localRot;
-	glm::vec3 localScale;
 public:
 	std::shared_ptr<Entity> getEntity();
 	std::shared_ptr<Core> getCore();
 	std::shared_ptr<Keyboard> getKeyboard();
 	std::shared_ptr<Environment> getEnviroment();
-	void translate(glm::vec3 _distance);
-	void roatate(glm::vec3 _rotation);
-	void scale(glm::vec3 _scale);
-	void setLocalPos(glm::vec3 _pos);
-	void setLocalRot(glm::vec3 _rot);
-	void setLocalScale(glm::vec3 _scale);
+	std::shared_ptr<Camera> getCamera();
 };
 
 

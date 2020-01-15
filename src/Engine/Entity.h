@@ -16,9 +16,9 @@ private:
 	std::weak_ptr<Core> core;
 	void tick();
 	void display();
-	glm::vec3 position;
-	glm::vec3 rotation;
-	glm::vec3 scale;
+	glm::vec3 localPos;
+	glm::vec3 localRot;
+	glm::vec3 localScale;
 public:
 
 	std::shared_ptr<Core> getCore();
@@ -50,6 +50,14 @@ public:
 		}
 		throw std::exception();
 	}
+
+	void translate(glm::vec3 _distance);
+	void rotate(glm::vec3 _rotation);
+	void scale(glm::vec3 _scale);
+	void setLocalPos(glm::vec3 _pos);
+	void setLocalRot(glm::vec3 _rot);
+	void setLocalScale(glm::vec3 _scale);
+	glm::mat4 getModel();
 
 	Entity();
 	~Entity();
