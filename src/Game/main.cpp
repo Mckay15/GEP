@@ -19,10 +19,10 @@ int main ()
 	std::shared_ptr<Entity> entity = Temp->addEntity();
 	std::shared_ptr<Entity> entity2 = Temp->addEntity();
 	auto meshRen = entity2->addComponent<MeshRenderer>();
-	entity2->setLocalPos(glm::vec3(0, 0, 5));
+	entity2->setLocalPos(glm::vec3(0, 0, 15));
 
 	auto meshRen2 = entity->addComponent<MeshRenderer>();
-	entity->setLocalPos(glm::vec3(1, 0, 5));
+	entity->setLocalPos(glm::vec3(0, 0, 5));
 
 	//cameraObject->getComponent<Camera>()->getCamera();
 	Temp->setCamera(cameraObject->addComponent<Camera>());
@@ -36,11 +36,11 @@ int main ()
 	entity2->getComponent<MeshRenderer>()->setMaterial(mat);
 
 	std::shared_ptr<Mesh> cat2;
-	cat2 = Temp->getResources()->load<Mesh>("curuthers");
-	entity->getComponent<MeshRenderer>()->setMesh(cat);
+	cat2 = Temp->getResources()->load<Mesh>("curuthers2");
+	entity->getComponent<MeshRenderer>()->setMesh(cat2);
 	std::shared_ptr<Material> mat2;
-	mat2 = Temp->getResources()->load<Material>("curuthers");
-	entity->getComponent<MeshRenderer>()->setMaterial(mat);
+	mat2 = Temp->getResources()->load<Material>("curuthers2");
+	entity->getComponent<MeshRenderer>()->setMaterial(mat2);
 	//entity2->getComponent<MeshRenderer>()->onInit();
 
 	//entity2->addComponent<Keyboard>();

@@ -5,29 +5,33 @@
 #include <list>
 #include <glm/glm.hpp>
 #include "Component.h"
-//class Core;
+
+/**
+*  Represents a Gameobject
+*/
 
 class Entity
 {
 	friend class Core;
 private:
-	std::list<std::shared_ptr<Component>> components;
-	std::weak_ptr<Core> core;
-	std::weak_ptr<Entity> self;
+	std::list<std::shared_ptr<Component>> components; ///< stores the Gameobjects components
+	std::weak_ptr<Core> core; ///< keeps a reference to core
+	std::weak_ptr<Entity> self; ///< keeps a refenece to it self to give to components
 	void tick();
-	void display();
-	glm::vec3 localPos = glm::vec3(0,0,0);
-	glm::vec3 localRot = glm::vec3(0,0,0);
-	glm::vec3 localScale = glm::vec3(1,1,1);
+	void display(); 
+	glm::vec3 localPos = glm::vec3(0,0,0); ///< keeps local position gets set to 0 by default
+	glm::vec3 localRot = glm::vec3(0,0,0); ///< keeps local rotation gets set to 0 by default
+	glm::vec3 localScale = glm::vec3(1,1,1); ///< keeps local scale gets set to 1 by default, 0 results in not seeing anything
 public:
 
 	std::shared_ptr<Core> getCore();
+	/**
+	*\brief AddComponent will store a component and initate component, allows for addtional parameters for onInit() 
+	*/
 	template<typename T, typename... A> 
 	std::shared_ptr<T> addComponent(A... args)
 	{
 		std::shared_ptr<T> component = std::make_shared<T>();
-		//temp = std::dynamic_pointer_cast<Component>(component);
-		//component->onInit(args...);
 		if (!component)
 		{
 			throw std::exception();
@@ -37,7 +41,9 @@ public:
 		component->onInit(args...);
 		return component;	
 	}
-
+	/**
+	*\brief goes through components till it finds required type defined by template
+	*/
 	template<typename T> 
 	std::shared_ptr<T> getComponent()
 	{
