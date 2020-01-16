@@ -10,26 +10,24 @@
 #include <AL/alc.h>
 
 class Entity;
-class Keyboard;
-class Environment;
-class Screen;
 class Resources;
 class Camera;
+/**
+*\brief Represents the core
+*The core will control and run the other systems
+*/
 
 class Core : private NonCopyable
 {
 private:
-	std::list<std::shared_ptr<Entity>> entities;
-	std::shared_ptr<Environment> environment;
-	std::shared_ptr<Keyboard> keyboard;
-	std::shared_ptr<Screen> screen;
-	std::shared_ptr<Resources> resources;
-	std::weak_ptr<Camera> camera;
-	bool running = true;
-	std::weak_ptr<Core> self;
-	ALCcontext* audioContext;
-	std::shared_ptr<rend::Context> context;
-	SDL_Window* window;
+	std::list<std::shared_ptr<Entity>> entities; ///< Each entity is stored to run through later
+	std::shared_ptr<Resources> resources; ///< Holds a reference to Resources
+	std::weak_ptr<Camera> camera; ///< Holds a reference to camera 
+	bool running = true;  ///< bool to say it is running
+	std::weak_ptr<Core> self; ///< a weak_ptr to itself to give to others
+	std::shared_ptr<rend::Context> context; ///< reference to context for multiple objects to access
+	SDL_Window* window; ///< SDL_Window store location, setup in initalize
+	SDL_GLContext glContext;
 public:
 	void setCamera(std::shared_ptr<Camera> _camera);
 	std::shared_ptr<Resources> getResources();

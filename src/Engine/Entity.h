@@ -7,7 +7,7 @@
 #include "Component.h"
 
 /**
-*  Represents a Gameobject
+*\brief Represents a Gameobject
 */
 
 class Entity

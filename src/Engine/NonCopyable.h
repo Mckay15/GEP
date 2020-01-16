@@ -1,6 +1,10 @@
 #ifndef _NONCOPYABLE_H_
 #define _NONCOPYABLE_H_
 
+/**
+*\brief Represents NonCopyable class
+*Stops a class from being copied
+*/
 class NonCopyable
 {
 protected:

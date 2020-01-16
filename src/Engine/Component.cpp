@@ -1,44 +1,51 @@
 #include "Component.h"
 #include "Keyboard.h"
-#include "Environment.h"
 #include "Core.h"
 #include "Entity.h"
-
+/**
+*\brief Virtual onInit
+*/
 void Component::onInit()
 {
 }
 
+/**
+*\brief Virtual onBegin
+*/
 void Component::onBegin()
 {
 }
 
+/**
+*\brief Virtual onTick
+*/
 void Component::onTick()
 {
 }
 
+/**
+*\brief Virtual onDisplay
+*/
 void Component::onDisplay()
 {
 }
 
+/**
+*\brief Gets Components Entity reference
+*\return shared_ptr of Entity
+*/
 std::shared_ptr<Entity> Component::getEntity()
 {
 	return entity.lock();
 }
+
+/**
+*\brief Gets the core
+*\return Gets core through Entity
+*/
 std::shared_ptr<Core> Component::getCore() 
 {
 	return entity.lock()->getCore();
 }
-std::shared_ptr<Keyboard> Component::getKeyboard()
-{
-	return std::make_shared<Keyboard>();
-}
-std::shared_ptr<Environment> Component::getEnviroment()
-{
-	return std::make_shared<Environment>();
-}
 
-std::shared_ptr<Camera> Component::getCamera()
-{
-	return std::shared_ptr<Camera>();
-}
 

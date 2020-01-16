@@ -46,5 +46,6 @@ int main ()
 	//entity2->addComponent<Keyboard>();
 
 	Temp->start();
+	Temp->stop();
 return 0;
 }

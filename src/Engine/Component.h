@@ -8,11 +8,14 @@ class Environment;
 class Keyboard;
 class Camera;
 
+/**
+*\brief Represents Component class
+*/
 class Component
 {
 	friend class Entity;
 private:
-	std::weak_ptr<Entity> entity;
+	std::weak_ptr<Entity> entity; ///< Holds a reference to entity its attached to
 public:
 	virtual void onInit();
 	virtual void onBegin();
@@ -20,9 +23,6 @@ public:
 	virtual void onDisplay();
 	std::shared_ptr<Entity> getEntity();
 	std::shared_ptr<Core> getCore();
-	std::shared_ptr<Keyboard> getKeyboard();
-	std::shared_ptr<Environment> getEnviroment();
-	std::shared_ptr<Camera> getCamera();
 };
 
 

@@ -4,6 +4,11 @@
 #include "Core.h"
 #include <fstream>
 
+/**
+*\brief onLoad loads a obj file
+*\param _path is name of file name for the obj without extension
+*loads a obj and creates a mesh from it and store it in mesh
+*/
 void Mesh::onLoad(const std::string & _path)
 {
 	std::string obj;
@@ -39,14 +44,4 @@ Mesh::Mesh()
 
 Mesh::~Mesh()
 {
-}
-
-void Mesh::addFace(rend::Face& _face)
-{
-	faces.push_back(_face);
-}
-
-GLuint Mesh::getId()
-{
-	return GLuint();
 }

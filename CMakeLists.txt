@@ -22,17 +22,12 @@ endif()
 add_library(GEP
   src/Engine/Core.cpp
   src/Engine/Core.h
-  src/Engine/dummp.cpp
   src/Engine/Entity.cpp
   src/Engine/Entity.h
-  src/Engine/Environment.cpp
-  src/Engine/Environment.h
   src/Engine/Keyboard.cpp
   src/Engine/Keyboard.h
   src/Engine/Component.cpp
   src/Engine/Component.h
-  src/Engine/TriRend.cpp
-  src/Engine/TriRend.h
   src/Engine/NonCopyable.cpp
   src/Engine/NonCopyable.h
   src/Engine/Camera.cpp
@@ -43,16 +38,10 @@ add_library(GEP
   src/Engine/Resource.h
   src/Engine/MeshRenderer.cpp
   src/Engine/MeshRenderer.h
-  src/Engine/Sound.cpp
-  src/Engine/Sound.h
   src/Engine/Material.cpp
   src/Engine/Material.h
-  src/Engine/MaterialAttribute.cpp
-  src/Engine/MaterialAttribute.h
   src/Engine/Resources.cpp
   src/Engine/Resources.h
-  src/Engine/Screen.cpp
-  src/Engine/Screen.h
   )
 target_link_libraries(GEP SDL2 rend)
 

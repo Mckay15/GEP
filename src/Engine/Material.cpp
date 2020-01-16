@@ -8,6 +8,12 @@
 #include <iostream>
 #include <fstream>
 
+/**
+*\brief Loads a shader and Texture 
+*\param _path is name of file name for the shader and texture
+*This function will load a shader and texture from resources.
+*_path just need to be the file name without the file extension.
+*/
 void Material::onLoad(const std::string& _path)
 {
 	std::shared_ptr<rend::Shader> rtnS = getCore()->getContext()->createShader();
