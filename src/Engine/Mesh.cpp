@@ -37,11 +37,3 @@ void Mesh::onLoad(const std::string & _path)
 	std::cout << "Finished loading " << _path << std::endl;
 	//return std::make_shared<Mesh>();
 }
-
-Mesh::Mesh()
-{
-}
-
-Mesh::~Mesh()
-{
-}

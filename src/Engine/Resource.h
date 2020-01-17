@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <string>
-#include "NonCopyable.h"
 
 class Core;
 class Mesh;
@@ -11,7 +10,7 @@ class Mesh;
 /**
 *\brief Represents Resource class
 */
-class Resource : private NonCopyable
+class Resource
 {
 	friend class Resources;
 private:

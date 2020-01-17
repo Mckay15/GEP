@@ -54,10 +54,10 @@ glm::mat4 Entity::getModel()
 {
 	glm::mat4 model = glm::mat4(1);
 
-	model = glm::translate(model, localPos);
 	model = glm::rotate(model, localRot.x, glm::vec3(1, 0, 0));
 	model = glm::rotate(model, localRot.y, glm::vec3(0, 1, 0));
 	model = glm::rotate(model, localRot.z, glm::vec3(0, 0, 1));
+	model = glm::translate(model, localPos);
 	model = glm::scale(model, localScale);
 	return model;
 }

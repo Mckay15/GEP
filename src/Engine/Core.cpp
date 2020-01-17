@@ -104,7 +104,7 @@ void Core::start()
 				running = false;
 			}
 		}
-		std::cout << "RUNNING" << std::endl;
+		//std::cout << "RUNNING" << std::endl;
 		glClearColor(0.39f, 0.58f, 0.93f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

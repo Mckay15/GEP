@@ -13,8 +13,8 @@ class Resources
 	friend class Core;
 private:
 	std::list<std::shared_ptr<Resource>> resources; ///< Holds a list of resource
-public:
 	std::weak_ptr<Core> selfCore; ///< Holds weak_ptr to core
+public:
 	
 	/**
 	*\brief loads a resource

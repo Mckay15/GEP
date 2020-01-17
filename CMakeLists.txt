@@ -24,8 +24,6 @@ add_library(GEP
   src/Engine/Core.h
   src/Engine/Entity.cpp
   src/Engine/Entity.h
-  src/Engine/Keyboard.cpp
-  src/Engine/Keyboard.h
   src/Engine/Component.cpp
   src/Engine/Component.h
   src/Engine/NonCopyable.cpp
